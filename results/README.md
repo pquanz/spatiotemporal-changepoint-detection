@@ -42,7 +42,7 @@ As in the paper, the nominal level at the boundary is very well
 approximated for `bm` (0.045 at $n=500$) and the test is comparatively
 conservative for `ns` (0.010 at $n=500$).*
 
-| $\|\delta\|^2$ | 0 | 0.1 | **0.15 ($\Delta$)** | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 |
+| $\lVert \delta\rVert^2$ | 0 | 0.1 | **0.15 ($\Delta$)** | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | **bm (d=15)** | | | | | | | | |
 | n=150 | 0.000 | 0.020 | **0.030** | 0.095 | 0.330 | 0.550 | 0.740 | 0.830 |
@@ -74,7 +74,7 @@ choice"; all three panels look essentially the same.
 ## Fully-functional test
 
 The same relevant-change hypothesis, but tested on the full function rather
-than a finite-dimensional projection ($\|\delta\|^2$ directly, no
+than a finite-dimensional projection ($\lVert \delta\rVert^2$ directly, no
 projection dimension involved). Same three error processes as above, 1000
 fresh simulation runs per (process, sample size) combination,
 $n=150/250/500$ (seeds 847213/592084/736951 for bm/ns/ma, fully
@@ -88,7 +88,7 @@ $n=150/250/500$. As in the paper (Figure 1), the non-separable process
 least powerful, matching the paper's own stated ordering of the three
 processes.*
 
-| $\|\delta\|^2$ | 0 | 0.05 | 0.1 | **0.15 ($\Delta$)** | 0.2 | 0.25 | 0.3 |
+| $\lVert \delta\rVert^2$ | 0 | 0.05 | 0.1 | **0.15 ($\Delta$)** | 0.2 | 0.25 | 0.3 |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | **bm** | | | | | | | |
 | n=150 | 0.000 | 0.000 | 0.025 | **0.025** | 0.125 | 0.225 | 0.325 |
@@ -103,12 +103,12 @@ processes.*
 | n=250 | 0.025 | 0.000 | 0.025 | **0.050** | 0.375 | 0.625 | 0.775 |
 | n=500 | 0.000 | 0.000 | 0.000 | **0.025** | 0.500 | 0.850 | 0.925 |
 
-The x-axis stops at $\|\delta\|^2=0.3$ since that's the largest value
+The x-axis stops at $\lVert \delta\rVert^2=0.3$ since that's the largest value
 `gen_data_cp.R`'s `range_data_mean` currently generates.
 
 **Why the power differs across processes** (Figure 2 in the paper): the
 power curves above are explained by the size of
-$(\Delta-\|\delta\|^2)/\tau_{\delta,\vartheta_0}$, where $\tau^2$ is the
+$(\Delta-\lVert \delta\rVert^2)/\tau_{\delta,\vartheta_0}$, where $\tau^2$ is the
 asymptotic variance in Theorem 3.1 (eq. 3.7); a smaller $\tau$ pulls this
 term further from 0, giving higher power. $\tau^2$ is a quadratic form in
 $\delta$, so one Monte Carlo estimate per process ($n=500$, 2000 reps) is
@@ -118,7 +118,7 @@ enough; see `fully-functional/tau_sq_diagnostic.R`.
 
 | process | bm | ns | ma |
 |---|---:|---:|---:|
-| $\tau^2$ (per unit $\|\delta\|^2$) | 6.34 | 0.114 | 2.28 |
+| $\tau^2$ (per unit $\lVert \delta\rVert^2$) | 6.34 | 0.114 | 2.28 |
 
 This exactly explains the power ordering above: `ns` has by far the
 smallest $\tau^2$, `bm` the largest.
@@ -179,7 +179,7 @@ works on a 113-year average rather than individual years.*
 
 **Fully-functional test** (`relevant_change_test()` in `canada_application.R`,
 seed 319742): maximal threshold still rejected at the 5% level **-0.24**
-[paper: 2.974]; one-sided CI for $\|\delta\|$: **[0, 4.75]** [paper: [0,
+[paper: 2.974]; one-sided CI for $\lVert \delta\rVert$: **[0, 4.75]** [paper: [0,
 4.397]]; two-sided: **[0, 5.06]** [paper: [0.672, 4.675]].
 
 | $\Delta$ | 90% | 95% | 99% |

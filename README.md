@@ -32,16 +32,16 @@ $X_{k_0+1},\dots,X_n$ have mean $\mu_2(t,s)$ for some unknown change point
 $k_0$. Write $\delta(t,s) = \mu_2(t,s) - \mu_1(t,s)$ for the (unknown)
 change and fix a relevance threshold $\Delta>0$. We test
 
-$$H_0: \|\delta\|^2 \le \Delta \quad \text{against} \quad H_1: \|\delta\|^2 > \Delta$$
+$$H_0: \lVert \delta\rVert^2 \le \Delta \quad \text{against} \quad H_1: \lVert \delta\rVert^2 > \Delta$$
 
 With a change-point estimate $\hat k_n$ and $\lambda\in(0,1)$, define
 
 $$D_n(\lambda)(t,s) = \frac{1}{\hat k_n}\sum_{i=1}^{\lfloor \lambda \hat k_n \rfloor} X_i(t,s) - \frac{1}{n-\hat k_n}\sum_{j=\hat k_n+1}^{\hat k_n+\lfloor \lambda(n-\hat k_n) \rfloor} X_j(t,s)$$
 
-We estimate $\|\delta\|^2$ by $\hat{\mathbb D}_n = \|D_n(1)\|^2$. We use
+We estimate $\lVert \delta\rVert^2$ by $\hat{\mathbb D}_n = \lVert D_n(1)\rVert^2$. We use
 self-normalization via
 
-$$\hat{\mathbb V}_n = \left(\int_0^1 \left(\|D_n(\lambda)\|^2 - \lambda^2 \hat{\mathbb D}_n\right)^2 \, d\nu(\lambda)\right)^{1/2}$$
+$$\hat{\mathbb V}_n = \left(\int_0^1 \left(\lVert D_n(\lambda)\rVert^2 - \lambda^2 \hat{\mathbb D}_n\right)^2 \, d\nu(\lambda)\right)^{1/2}$$
 
 for a probability measure $\nu$ on $(0,1)$ (our code discretizes this
 integral on a grid; the paper's own definition has no grid, just the
@@ -82,7 +82,7 @@ The fully-functional test uses the whole function (the "usual" $L^2$ norm);
 the projection test reduces to its first $d$ components instead. $n=500$,
 Brownian-motion process:
 
-| $\|\delta\|^2$ | 0 | 0.1 | **0.15 ($\Delta$)** | 0.2 | 0.3 |
+| $\lVert \delta\rVert^2$ | 0 | 0.1 | **0.15 ($\Delta$)** | 0.2 | 0.3 |
 |---|---:|---:|---:|---:|---:|
 | Projection (d=15) | 0.000 | 0.005 | **0.045** | 0.170 | 0.700 |
 | Fully-functional (full $L^2$) | 0.000 | 0.000 | **0.075** | 0.275 | 0.850 |
