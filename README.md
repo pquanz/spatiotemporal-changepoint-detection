@@ -3,7 +3,8 @@
 Simulation and application code for:
 
 Dette, H. and Quanz, P. (2023). Detecting relevant changes in the spatiotemporal
-mean function. *Journal of Time Series Analysis*, 44(5-6), 505-532.
+mean function. *Journal of Time Series Analysis*, 44(5-6), 505-532,
+available at [https://doi.org/10.1111/jtsa.12674](https://doi.org/10.1111/jtsa.12674).
 
 Tests whether the mean function of a spatiotemporal process has changed by more
 than a given threshold (a "relevant" change), using projections onto a
