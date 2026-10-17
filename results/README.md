@@ -163,12 +163,17 @@ Daily mean temperature at 4 stations, $n=113$ years (1891-2007, excluding
 different climates.*
 
 **Change-point estimate** (`get_cp_estimate()`): **$\hat\vartheta_n =
-0.7079646$** [paper: 0.708] (paper states $\approx 1969$; re-deriving the
-calendar year ourselves from the trimmed years vector, accounting for the
-4 excluded missing-data years and using the paper's own model (2.1)
-convention ($\lfloor n\vartheta \rfloor$ is the last pre-change
-observation) gives 1971/1972 instead; we report our own computation
-rather than force an exact match).
+0.7079646$** [paper: 0.708] (paper states $\approx 1969$). Mapping
+$\hat\vartheta_n$ to a calendar year is not a well-defined, closed-form
+computation: an earlier manuscript draft (not the published version)
+notes this depends on the choice of yearly segmentation, and that an
+alternative July 1-June 30 segmentation (instead of January 1-December 31)
+shifts the estimate itself to $\hat\vartheta_n = 0.699$, corresponding to
+"1968/69" rather than 1969. Re-deriving the calendar year from our own
+trimmed years vector, accounting for the 4 excluded missing-data years and
+using the paper's own model (2.1) convention ($\lfloor n\vartheta \rfloor$
+is the last pre-change observation), gives 1971/1972; we report our own
+computation rather than force an exact match to either stated year.
 
 ![Yearly mean temperature](../canada-weather/results/yearly_temperature.png)
 
