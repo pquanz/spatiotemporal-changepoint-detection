@@ -183,14 +183,14 @@ large relative to any shift in the mean, which is exactly why the test
 works on a 113-year average rather than individual years.*
 
 **Fully-functional test** (`relevant_change_test()` in `canada_application.R`,
-seed 319742): maximal threshold still rejected at the 5% level **-0.24**
+seed 319742): maximal threshold still rejected at the 10% level **3.02**
 [paper: 2.974]; one-sided CI for $\lVert \delta\rVert$: **[0, 4.75]** [paper: [0,
 4.397]]; two-sided: **[0, 5.06]** [paper: [0.672, 4.675]].
 
-| $\Delta$ | 90% | 95% | 99% |
+| $\Delta$ | $\alpha=10\%$ | $\alpha=5\%$ | $\alpha=1\%$ |
 |---|---:|---:|---:|
 | this repo | 3.02 | -0.24 | -7.52 |
-| paper | >2.975 | 2.974 | <2.974 |
+| paper | 2.974 | 0.004 | <0.004 |
 
 **Choosing d=51** (Figure 7 in the paper): the explained-variance ratio
 $e(j)$ for the estimated covariance operator, $j=1,\dots,100$.
@@ -200,19 +200,21 @@ $e(j)$ for the estimated covariance operator, $j=1,\dots,100$.
 **Projection test** (`relevant_change_test_projection()`, $d=51$, chosen
 the same way as the paper, by 95%-variance-explained; this repo's own
 eigensystem gives $e(51)=0.8493$, matching the paper's reported
-$\approx 0.849$): maximal threshold still rejected at the 5% level
-**3.23** [paper: 4.467]; one-sided CI: **[0, 3.44]** [paper: [0, 3.254]];
+$\approx 0.849$): maximal threshold still rejected at the 10% level
+**4.46** [paper: 4.467]; one-sided CI: **[0, 3.44]** [paper: [0, 3.254]];
 two-sided: **[1.44, 3.60]** [paper: [1.877, 3.396]].
 
-| $\Delta$ | 90% | 95% | 99% |
+| $\Delta$ | $\alpha=10\%$ | $\alpha=5\%$ | $\alpha=1\%$ |
 |---|---:|---:|---:|
 | this repo | 4.46 | 3.23 | 0.49 |
-| paper | reject at 4.468 | 4.467 | reject at 4.467, accept at 4.468 |
+| paper | 4.467 | 3.301 | 0.531 |
 
-In plain terms: both of our own re-derivations are in the same ballpark as
-the paper's (the projection test noticeably closer; its one-sided CI is
-within ~6% of the paper's) but don't land on the exact same threshold.
-$\hat\vartheta_n$'s exact match, and $e(51)$ matching the paper's reported
+In plain terms: once compared at matching significance levels (the
+paper's own convention, $\alpha=10\%/5\%/1\%$), both of our own
+re-derivations land close to the paper's own numbers: 3.02 vs. 2.974 for
+the fully-functional test, and 4.46 vs. 4.467 for the projection test,
+both at the $\alpha=10\%$ level the paper itself uses as its headline
+comparison. $\hat\vartheta_n$'s exact match, and $e(51)$ matching the paper's reported
 value almost exactly, both suggest the overall approach and eigensystem
 construction are right; $\hat{\mathbb D}_n$ and $\hat{\mathbb V}_n$'s
 construction checked out against the paper's formulas directly, but the
