@@ -1,0 +1,16 @@
+data/
+*.csv
+*.RData
+*.Rhistory
+.Rproj.user/
+*.txt
+.DS_Store
+
+# vendored Canada station data (trimmed, ~5.2MB, see canada-weather/README.md)
+!canada-weather/station-data/*.csv
+
+# tiny cached Monte Carlo result (3 rows), avoids rerunning the only
+# expensive step in scripts/bias_diagnostic.R for cosmetic-only changes
+!fully-functional/data/
+fully-functional/data/*
+!fully-functional/data/tau-sq-cache.csv
