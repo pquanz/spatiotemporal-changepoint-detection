@@ -41,19 +41,19 @@ $$D_n(\lambda)(t,s) = \frac{1}{\hat k_n}\sum_{i=1}^{\lfloor \lambda \hat k_n \rf
 We estimate $\lVert \delta\rVert^2$ by $\hat{\mathbb D}_n = \lVert D_n(1)\rVert^2$. We use
 self-normalization via
 
-$$\hat{\mathbb V}_n = \left(\int_0^1 \left(\lVert D_n(\lambda)\rVert^2 - \lambda^2 \hat{\mathbb D}_n\right)^2 \, d\nu(\lambda)\right)^{1/2}$$
+$$\hat{\mathbb V}_n = \left(\int_0^1 \left(\lVert D_n(\lambda)\rVert^2 - \lambda^2 \hat{\mathbb D}_n\right)^2 d\nu(\lambda)\right)^{1/2}$$
 
 for a probability measure $\nu$ on $(0,1)$ (our code discretizes this
 integral on a grid; the paper's own definition has no grid, just the
 integral); $\hat{\mathbb V}_n$ needs no separate estimate of the error
 process's variance. We show that the decision rule, reject $H_0$ if
 
-$$\hat{\mathbb D}_n > \Delta + q_{1-\alpha}(\mathbb W)\,\hat{\mathbb V}_n$$
+$$\hat{\mathbb D}_n > \Delta + q_{1-\alpha}(\mathbb W) \hat{\mathbb V}_n$$
 
 has asymptotic level $\alpha$, where $q_{1-\alpha}(\mathbb W)$ is the
 quantile of
 
-$$\mathbb W = \frac{\mathbb B(1)}{\left(\int_0^1 \lambda^2(\mathbb B(\lambda) - \lambda \mathbb B(1))^2 \, d\nu(\lambda)\right)^{1/2}}$$
+$$\mathbb W = \frac{\mathbb B(1)}{\left(\int_0^1 \lambda^2(\mathbb B(\lambda) - \lambda \mathbb B(1))^2 d\nu(\lambda)\right)^{1/2}}$$
 
 with $\mathbb B$ a standard Brownian motion on $[0,1]$.
 
